@@ -194,7 +194,7 @@ const Profile = ({doctorData}) => {
         <div className='mb-5'>
           <p className='form__label'>Bio*</p>
           <input type="text" name='bio' value={formData.bio} onChange={handleInputChange}
-            placeholder='Bio' className='form__input' maxLength={100} />
+            placeholder='Bio' className='form__input' maxLength={200} />
 
         </div>
 
