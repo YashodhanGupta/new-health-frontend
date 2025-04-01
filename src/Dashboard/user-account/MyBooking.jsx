@@ -17,7 +17,7 @@ const MyBooking = () => {
     <div> 
       {loading && !error && <Loading />}
     
-      {!error && !loading && <Error errMessage={error} />}
+      {!error && !loading && <Error errMessage={error} />} <br />
 
       {!loading  && !error && <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {
@@ -26,7 +26,7 @@ const MyBooking = () => {
        {!loading && !error && appointments.length===0 && <h2 className="mt-5 text-center leading-7 text-[20px] font-semibold
         text-primaryColor"  >You did not book any doctor yet!</h2>}
 
-      </div> }
+      </div> } <br />
     </div>
   );
 };

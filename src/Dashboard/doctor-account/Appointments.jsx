@@ -1,4 +1,4 @@
-
+import { formateDate } from "../../utils/formateDate"
 
 const Appointments = ({ appointments }) => {
   return (
@@ -18,7 +18,7 @@ const Appointments = ({ appointments }) => {
             Price
           </th>
           <th scope="col" className="px-6 py-3">
-            Book on
+            Booked on
           </th>
         </tr>
       </thead>
@@ -29,7 +29,7 @@ const Appointments = ({ appointments }) => {
               scope="row"
               className="flex item-center px-6 py-4 text-gray-900 whitespace-nowrap"
             >
-              <img
+              <img 
                 src={item.user.photo}
                 className="w-10 h-10 rounded-full"
                 alt=""
@@ -57,7 +57,7 @@ const Appointments = ({ appointments }) => {
               )}
             </td>
             <td className="px-6 py-4">{item.ticketPrice}</td>
-            <td className="px-6 py-4">{formatDate(item.createdAt)}</td>
+            <td className="px-6 py-4">{formateDate(item.createdAt)}</td>
           </tr>
         ))}
       </tbody>

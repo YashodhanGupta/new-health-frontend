@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { useParams } from 'react-router-dom';
-// import { BASE_URL } from '../../config';
+import { BASE_URL,token } from '../../config';
 import { toast } from 'react-toastify';
 import HashLoader from 'react-spinners/HashLoader';
 
@@ -12,7 +12,7 @@ const FeedbackForm = () => {
   const [loading, setLoading] = useState(false);
 
   const { id } = useParams();
-  const token = 'your_token_here'; // Ensure to define the token
+  // const token = 'your_token_here'; // Ensure to define the token
 
   const handleSubmitReview = async (e) => {
     e.preventDefault();
@@ -21,24 +21,26 @@ const FeedbackForm = () => {
     try {
       if (!rating || !reviewText) {
         setLoading(false);
-        toast.error('Fields are not valid or empty');
-      } else {
-        const res = await fetch(`${BASE_URL}/doctors/${id}/reviews`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ rating, reviewText }), // Moved body here
-        });
-
-        const result = await res.json();
-        if (!res.ok) {
-          throw new Error(result.message);
-        }
-        setLoading(false);
-        toast.success(result.message);
+        return toast.error('Rating & Review Fields are required');
+      
+        
       }
+
+      const res = await fetch(`${BASE_URL}/doctors/${id}/reviews`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ rating, reviewText }), // Moved body here
+      });
+
+      const result = await res.json();
+      if (!res.ok) {
+        throw new Error(result.message);
+      }
+      setLoading(false);
+      toast.success(result.message);
     } catch (error) {
       setLoading(false);
       toast.error(error.message);
@@ -91,7 +93,7 @@ const FeedbackForm = () => {
         ></textarea>
       </div>
       <button type="submit" className="btn" onClick={handleSubmitReview}>
-        Submit Feedback
+        {loading ? <HashLoader size={25} color='#fff'/>: 'Submit Feedback'}
       </button>
     </form>
   );
