@@ -94,8 +94,9 @@ const FeedbackForm = () => {
       </div>
       <button type="submit" className="btn" onClick={handleSubmitReview}>
         {loading ? <HashLoader size={25} color='#fff'/>: 'Submit Feedback'}
-      </button>
+      </button> 
     </form>
+    
   );
 };
 

@@ -26,8 +26,8 @@ const Dashboard = () => {
         <div className="grid lg:grid-cols-3 gap-[30px] lg:gap-[50px]">
           <Tabs tab={tab} setTab={setTab} />
 
-          <div className="lg:col-span-2">
-            {doctor.isApproved === "pending" && (
+          <div className="lg:col-span-2"> <br />
+            {doctor.isApproved === "pending" && ( 
               <div className='flex p-4 mb-4 text-yellow-800 bg-yellow-50 rounded-lg'>
                 <svg
                   aria-hidden="true"
