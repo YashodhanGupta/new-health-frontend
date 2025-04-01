@@ -34,8 +34,11 @@ const Home = () => {
               <p className='text__para'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Sequi fugiat dolorem dolores. Ducimus sed magni dolorum animi quasi iusto natus odio quaerat praesentium ut pariatur delectus,
                 libero amet obcaecati rem.</p>
-
-              <button className='btn'>Request an Appointment</button>
+              
+              <Link to='/doctors' >
+              <button className='btn'>Request an Appointment</button> 
+              </Link>
+              
             </div>
             {/*-----------hero counter----------*/}
             <div className='mt-[10px] lg:mt-[40px] flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-[30px]'>

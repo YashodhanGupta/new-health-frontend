@@ -20,7 +20,7 @@ const CheckoutSuccess = () => {
 
         <div className="mt-6">
           <Link
-            to="/home"
+            to="/"
             className="inline-block px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300"
           >
             Go Back to Home
