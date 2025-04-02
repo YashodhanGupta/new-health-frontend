@@ -13,6 +13,8 @@ import CheckoutSuccess from "../pages/CheckoutSuccess";
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 
+import Appointment from "../Dashboard/doctor-account/Appointments";
+
 function Routers() {
   return (
     <Routes>
@@ -25,6 +27,8 @@ function Routers() {
       <Route path="/login" element={<Login />} />
       <Route path="/services" element={<Services />} />
       <Route path="/checkout-success" element={<CheckoutSuccess />} />
+
+      <Route path="/appointments" element={<Appointment />} />
       <Route
         path="/users/profile/me"
         element={

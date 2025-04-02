@@ -19,46 +19,53 @@ const Login = () => {
   };
   
   const submitHandler = async (event) => {
-    event.preventDefault()
-    setLoading(true)
-
+    event.preventDefault();
+    setLoading(true);
+  
     try {
       const res = await fetch(`${BASE_URL}/auth/login`, {
-        method: 'post',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
-
-      const result = await res.json()
-
+      });
+  
+      const result = await res.json();
+  
       if (!res.ok) {
-        throw new Error(result.message)
+        throw new Error(result.message);
       }
-      dispatch({type:'LOGIN_SUCCESS',
-      payload:{
-        token : result.token,
-        user:result.data,
-        role:result.role
-
+  
+      dispatch({
+        type: "LOGIN_SUCCESS",
+        payload: {
+          token: result.token,
+          user: result.data,
+          role: result.role,
+        },
+      });
+  
+      // ✅ Store doctorId if the user is a doctor
+      if (result.role === "doctor") {
+        localStorage.setItem("doctorId", result.data._id);
+        console.log("Doctor ID stored:", result.data._id);
       }
-    })
-
-    console.log(result)
-      
-
-      toast.success(result.message)
-      // Try wrapping the navigate call in a setTimeout
+  
+      console.log(result);
+  
+      toast.success(result.message);
+  
       setTimeout(() => {
-        navigate('/')
-      }, 1000) // Adjust the timeout duration as needed
+        navigate("/");
+      }, 1000);
     } catch (error) {
-      toast.error(error.message)
+      toast.error(error.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
+  
   return (
     <section className="px-5 lg:px-0">
       <div className="w-full max-w-[570px] mx-auto rounded-lg shadow-md md:p-10">
