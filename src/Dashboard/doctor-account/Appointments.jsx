@@ -1,6 +1,7 @@
 import { formateDate } from "../../utils/formateDate";
 import { useState } from "react";
 import { useEffect } from "react";
+import { BASE_URL } from "../../config";
 
 const Appointments = () => {
 
@@ -16,7 +17,7 @@ const Appointments = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:5000/api/v1/bookings?doctorId=${doctorId}`);
+            const response = await fetch(`${BASE_URL}/bookings?doctorId=${doctorId}`);
             const result = await response.json();
 
             console.log("API Response:", result); // Debugging
