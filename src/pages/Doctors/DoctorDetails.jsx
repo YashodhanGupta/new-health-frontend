@@ -35,7 +35,7 @@ const DoctorDetails = () => {
     photo,
 
   }=doctor;
-
+  const formattedAverageRating = averageRating ? Math.floor(averageRating * 10) / 10 : 0;
 
   return <section> <br />
     <div className='max-w-[1170px] px-5 mx-auto'>
@@ -63,7 +63,7 @@ const DoctorDetails = () => {
               <div className="flex items-center gap-[6px]">
                 <span className="flex items-center gap-[6px] text-[14px] leading-5 lg:text-[16px] lg:leading-7 font-semibold text-headingColor">
                   <img src={starIcon} alt="" />
-                  {averageRating}
+                  {formattedAverageRating}
                 </span>
                 <span className="text-[14px] leading-5 lg:text-[16px] lg:leading-7 font-[400] text-textColor">
                   ({totalRating})

@@ -19,6 +19,8 @@ const DoctorCard = ({ doctor }) => {
         ? specialization.charAt(0).toUpperCase() + specialization.slice(1)
         : '';
 
+        const formattedAverageRating = averageRating ? Math.floor(averageRating * 10) / 10 : 0;
+
     return ( 
 
         <div className='p-3 lg:p-5 bg-gray-100'>
@@ -40,7 +42,7 @@ const DoctorCard = ({ doctor }) => {
                 <div className='flex items-center gap-[6px]'>
                     <span className='flex items-center gap-[6px] text-[14px] leading-6 lg:text-[16px] lg:leading-7 
                     font-semibold text-headingColor'>
-                        <img src={starIcon} alt="" />{averageRating}
+                        <img src={starIcon} alt="" />{formattedAverageRating}
         
                     </span>
 
